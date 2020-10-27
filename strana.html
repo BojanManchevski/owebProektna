@@ -17,16 +17,17 @@
 	<div id="nav">
 	<div id="nav-wrapper">
 		<ul>
-			<li><button>Home</button></li>
-			<li><button>Interests</button></li>
-			<li><button>Gallery</button></li>
-			<li><button>Blog</button></li>
+			<li><button><a href="#doma">Home</a></button></li>
+			<li><button><a href="#interesi">Interests</a></button></li>
+			<li><button><a href="#galerija">Gallery</a></button></li>
+			<li><button><a href="#blog">Blog</a></button>
 				<ul>
-                    <li>Elektroblog</li>
-                    <li>Studying HTML - a Podcast</li>
-                </ul>
-			<li><button>Contact</button></li>
-			<li><button>Survey</button></li>
+                    <li><a href="#elektroblog">Elektroblog</a></li>
+                    <li><a href="#podkasthtml">Studying HTML - a Podcast</a></li>
+				</ul>
+				</li>
+			<li><button><a href="#kontakt">Contact</a></button></li>
+			<li><button><a href="#anketa">Survey</a></button></li>
 		</ul>
 	</div>
 	<div id="nav-kraj"></div>
@@ -36,7 +37,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h1>Home</h1>
+			<h1 id="doma">Home</h1>
 		</div>
 		<div id="content">
 			<p>Добредојдовте на мојата персонална страна.<br><br>Во овој почетен оддел се наоѓаат општите информации за мене и служи како
@@ -59,7 +60,7 @@
 	<div></div>
 	<div id="wrapper">
 		<div id="header">
-			<h1>Interests</h1>
+			<h1 id="interesi">Interests</h1>
 		</div>
 		<div id="content">
 			<h2>Movies</h2>
@@ -88,7 +89,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h1>Gallery</h1>
+			<h1 id="galerija">Gallery</h1>
 		</div>
 		<div id="content">
 
@@ -109,16 +110,22 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h1>Blog</h1>
+			<h1 id="blog">Blog</h1>
 		</div>
 		<div id="content">
 			<h2>Social media</h2>
 			<p><a href="google.com">My newest social media post</a></p>
 			<form action="">
 				<textarea rows="2" cols="30" name="suggestion">Comment...</textarea>
-			<p><a href="google.com">HTML project entries</a><br><span style="color: grey; font-size: medium;">Current project: personal page</span></p>
-
 			</form>
+				<h2 id="podkasthtml">My Html Podcast</h2><button>Play</button><button>Pause</button>
+			<p><a href="google.com">HTML project entries</a><br><span style="color: grey; font-size: medium;">Current project: personal page</span></p>
+			<h3 id="elektroblog">Elektroblog</h3><p>All blog submissions here:<br> <ul>
+				<br><li><a href="www.google.com">ep 1.</a></li>
+				<br><li><a href="www.google.com">ep 2.</a></li>
+				<br><li><a href="www.google.com">ep 3.</a></li>
+				<br><li><a href="www.google.com">ep 4.</a></li></ul></p>
+			
 		</div>
 
 	</div>
@@ -127,7 +134,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h1>Contact</h1>
+			<h1 id="kontakt">Contact</h1>
 		</div>
 		<div id="content">
 			<address>
@@ -142,7 +149,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h3>Survey section</h3>
+			<h3 id="anketa">Survey section</h3>
 		</div>
 		<div id="content">
 			<p>Please fill out this short feedback survey</p>
