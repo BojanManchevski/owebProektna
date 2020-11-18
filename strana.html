@@ -159,17 +159,17 @@
 			<p><a href="google.com">HTML project entries</a><br><span style="color: grey; font-size: medium;">Current project: personal page</span></p>
 			<h3 id="elektroblog">Elektroblog</h3><p>All blog submissions here:<br> <ul>
 				<br><button class="droptext">Episode 1</button>
-					<div class="blogtext"><p>Test text for drop down.</p></div>
+					<div class="blogtext"><p>Blog episode 1 content.</p></div>
 
 
 				<br><button class="droptext">Episode 2</button>
-				<div class="blogtext"><p>Test text for drop down.</p></div>
+				<div class="blogtext"><p>Blog episode 2 content.</p></div>
 
 				<br><button class="droptext">Episode 3</button>
-				<div class="blogtext"><p>Test text for drop down.</p></div>
+				<div class="blogtext"><p>Blog episode 3 content.</p></div>
 
 				<br><button class="droptext">Episode 4</button>
-				<div class="blogtext"><p>Test text for drop down.</p></div>
+				<div class="blogtext"><p>Blog episode 4 content.</p></div>
 			
 			</ul>
 			</p>
@@ -297,10 +297,11 @@
 		//tesssssssssst
 
 		var komentari1="";
-
+		var randomUserNum;
 		function myFunction() {
   var x = document.getElementById("myText").value;
-	komentari1 += "RandomUser: " + x + "\n";
+	randomUserNum = Math.floor(Math.random() * 100);
+	komentari1 += "RandomUser" + randomUserNum +": " + x + "\n";
   document.getElementById("demo1").innerHTML = komentari1;
 }
 
