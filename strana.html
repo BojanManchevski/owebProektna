@@ -112,7 +112,7 @@
 
 							<input type="text" id="myText" value="Comment...">
 							<button class="likeButton" onclick="myFunction()">Post</button>
-							<p id="demo1">te\nst</p>
+							<p id="demo1"></p>
 						</td>
 
 
@@ -300,7 +300,7 @@
 
 		function myFunction() {
   var x = document.getElementById("myText").value;
-	komentari1 += "RandomUser: \n" + x;
+	komentari1 += "RandomUser: " + x + "\n";
   document.getElementById("demo1").innerHTML = komentari1;
 }
 
