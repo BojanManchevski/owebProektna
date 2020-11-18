@@ -83,7 +83,7 @@ body th, td{
     background-color: #DBDBDA;
     border: 5px solid #DBDBDA;
     border-top: 0;
-    margin-left: -5px;
+	margin-left: -5px;
 }
 
 #nav ul ul li {
@@ -111,6 +111,7 @@ body th, td{
   font-size: 20px;
   margin: 2px 1px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 #nav button:hover{
@@ -178,4 +179,57 @@ body th, td{
 	padding: 10px;
 	background: #fff;
 	box-shadow: 0 0 5px rgba(0,0,0,.35);
+}
+
+
+.droptext {
+
+background-color: #eee;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
+transition: 0.4s;
+}
+
+.active, .droptext:hover{
+	background-color: #ccc;
+}
+
+.blogtext {
+	padding: 0.18px;
+	font-size: 16px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+}
+
+.likeButton{
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 15%;
+	border: none;
+	outline: none;
+	font-size: 14px;
+	transition: 0.4s;
+}
+
+.active, .likeButton:hover{
+	background-color: #ccc;
+}
+
+.commentSection1 {
+	padding: 0.18px;
+	font-size: 10px;
+	display: block;
+	background-color: white;
+	overflow: hidden;
+
+
 }

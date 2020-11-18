@@ -96,9 +96,7 @@
 			<table>
 			<tr>
 
-			<td><img src="https://st4.depositphotos.com/1581106/22027/v/600/depositphotos_220275274-stock-video-bright-forest-scenery-background-animation.jpg" alt="Forrest pic"/>
-				
-				
+			<td><img src="https://st4.depositphotos.com/1581106/22027/v/600/depositphotos_220275274-stock-video-bright-forest-scenery-background-animation.jpg" width="480" height="270" alt="Forrest pic"/>
 			
 			</td>
 			<td>
@@ -109,14 +107,22 @@
 
 			<tr>
 					<td>
-						<button>Like</button><button>Share</button>
+						<p> <a id="clicks">0</a> people like this.</p>
+						<button class="likeButton" onClick="onClickLike()">Like</button><button>Share</button>
+
+							<input type="text" id="myText" value="Comment...">
+							<button class="likeButton" onclick="myFunction()">Post</button>
+							<p id="demo1">te\nst</p>
+						</td>
+
+
+
+					<td>
+						<p> <a id="clicks2">0</a> people like this.</p>
+						<button class="likeButton" onClick="onClickLike2()">Like</button><button>Share</button>
 						<form action="">
 							<textarea rows="1" cols="30" name="suggestion">Comment...</textarea>
-						</form>
-					</td>
-					<td><button>Like</button><button>Share</button>
-						<form action="">
-							<textarea rows="1" cols="30" name="suggestion">Comment...</textarea>
+							<input type="submit" value="Submit">
 						</form></td>
 			</tr>
 
@@ -152,10 +158,21 @@
 
 			<p><a href="google.com">HTML project entries</a><br><span style="color: grey; font-size: medium;">Current project: personal page</span></p>
 			<h3 id="elektroblog">Elektroblog</h3><p>All blog submissions here:<br> <ul>
-				<br><li><a href="www.google.com">ep 1.</a></li>
-				<br><li><a href="www.google.com">ep 2.</a></li>
-				<br><li><a href="www.google.com">ep 3.</a></li>
-				<br><li><a href="www.google.com">ep 4.</a></li></ul></p>
+				<br><button class="droptext">Episode 1</button>
+					<div class="blogtext"><p>Test text for drop down.</p></div>
+
+
+				<br><button class="droptext">Episode 2</button>
+				<div class="blogtext"><p>Test text for drop down.</p></div>
+
+				<br><button class="droptext">Episode 3</button>
+				<div class="blogtext"><p>Test text for drop down.</p></div>
+
+				<br><button class="droptext">Episode 4</button>
+				<div class="blogtext"><p>Test text for drop down.</p></div>
+			
+			</ul>
+			</p>
 			
 		</div>
 
@@ -185,7 +202,7 @@
 		<div id="content">
 			<p>Please fill out this short feedback survey</p>
 
-			<form action="">
+			<form name="surveyForm" action="" onsubmit="return ThankYou()">
 				<label for="fname">First name:</label><br>
 				<input type="text" id="fname" name="fname">
 				<br>
@@ -213,9 +230,84 @@
 
 
 
-	<div><p id="textpar"> All rights reserved. </p></div>
+	<div><p id="textpar"> All rights reserved. </p>
+	
+	</div>
 
 
 </body>
+
+<script>
+    var drp = document.getElementsByClassName("droptext");
+    var i;
+
+    for (i = 0; i < drp.length; i++){
+        drp[i].addEventListener("click", function(){
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block"){
+                panel.style.display = "none";
+            }
+            else {
+                panel.style.display = "block";
+            }
+
+
+        });
+
+    }
+
+	var likes1 = 0;
+	function onClickLike(){
+		
+		likes1 += 1;
+		document.getElementById("clicks").innerHTML = likes1;
+	};
+
+	var likes2 = 0;
+	function onClickLike2(){
+		
+		likes2 += 1;
+		document.getElementById("clicks2").innerHTML = likes2;
+	};
+
+	function ThankYou(){
+		var x = document.forms["surveyForm"]["fname"].value;
+		if (x == ""){
+			alert("Name must be filled out!")
+			return false;
+		}
+		else{
+		alert("Thank you for completing our survey!")
+		}
+	}
+
+
+
+	function AddComment1(){
+		var x = document.getElementById("FirstComment").value;
+		
+		document.getELementById("comments1").innerHTML = x;
+		
+
+	}
+
+
+
+		//tesssssssssst
+
+		var komentari1="";
+
+		function myFunction() {
+  var x = document.getElementById("myText").value;
+	komentari1 += "RandomUser: \n" + x;
+  document.getElementById("demo1").innerHTML = komentari1;
+}
+
+
+
+
+
+</script>
 
 </html>
