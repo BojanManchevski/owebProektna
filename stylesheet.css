@@ -233,3 +233,15 @@ transition: 0.4s;
 
 
 }
+
+#karateLevo{
+	display: block;
+	align: left;
+	opacity: 100;
+}
+
+#karateDesno{
+	display: block;
+	align: right;
+	opacity: 0;
+}

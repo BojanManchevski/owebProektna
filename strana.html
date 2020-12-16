@@ -21,8 +21,8 @@
 			<li><button><a href="#galerija">Gallery</a></button></li>
 			<li><button><a href="#blog">Blog</a></button>
 				<ul>
-                    <li><a href="#elektroblog">Elektroblog</a></li>
-                    <li><a href="#podkasthtml">Studying HTML - a Podcast</a></li>
+					<li><a href="#podkasthtml">Studying HTML - a Podcast</a></li>
+					<li><a href="#elektroblog">Elektroblog</a></li>
 				</ul>
 				</li>
 			<li><button><a href="#kontakt">Contact</a></button></li>
@@ -68,6 +68,24 @@
 				<br>
 				Check out the recent Netflix series following Daniel and Johnny in modern times - "Cobra Kai".
 			</p>
+
+			<div>
+				
+				<table>
+				<tbody>
+					<tr>
+					<td><img id="karateLevo" src="ralph-levo.jpg" onmouseover="ralphLevo(this)" width="200">
+					</td>
+
+					<td>
+						<img id="karateDesno" src="ralph-desno.jpg" onmouseover="ralphDesno(this)" width="200">
+					</td>
+
+					</tr>
+				</tbody>
+				</table>
+			</div>
+
 			<h2>Music</h2>
 			<p>Add me on Spotify to see what I'm listening to now! *live*<br>
 			Latest playlist:<a href="google.com"> here!</a></p>
@@ -107,29 +125,57 @@
 
 			<tr>
 					<td>
+					
+					
+						
 						<p> <a id="clicks">0</a> people like this.</p>
-						<button class="likeButton" onClick="onClickLike()">Like</button><button>Share</button>
+						
+						
+							<button class="likeButton" onClick="onClickLike()">Like</button>
 
 							<input type="text" id="myText" value="Comment...">
 							<button class="likeButton" onclick="myFunction()">Post</button>
 							<p id="demo1"></p>
+					
+					
+						
+						
 						</td>
-
+					
 
 
 					<td>
-						<p> <a id="clicks2">0</a> people like this.</p>
-						<button class="likeButton" onClick="onClickLike2()">Like</button><button>Share</button>
-						<form action="">
+					
+						
+							
+							<p> <a id="clicks2">0</a> people like this.</p>
+							
+							
+							<button class="likeButton" onClick="onClickLike2()">Like</button>
+							
+							
+							<form action="">
 							<textarea rows="1" cols="30" name="suggestion">Comment...</textarea>
 							<input type="submit" value="Submit">
-						</form></td>
+							</form>
+
+					</td>
 			</tr>
 
 
 
 		 	</table>
 			
+			 <table>
+				 <tr>
+					<td>
+						<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+						<p><label for="file" style="cursor: pointer;"><img src="upload-image-icon.png"></label></p>
+						<p><img id="output" width="500" /></p>
+					</td>
+
+				 </tr>
+			 </table>
 			
 
 
@@ -151,15 +197,18 @@
 			</form>
 				<h2 id="podkasthtml">My Html Podcast</h2>
 
-				<audio controls>
-					<source src="pod_audio" type="audio/ogg">
-					<source src="pod_audio" type="audio/mpeg">
-				</audio>
-
+				<div>
+					<button onclick="PodcastFunc()">Listen now!</button>
+				</div>
 			<p><a href="google.com">HTML project entries</a><br><span style="color: grey; font-size: medium;">Current project: personal page</span></p>
 			<h3 id="elektroblog">Elektroblog</h3><p>All blog submissions here:<br> <ul>
-				<br><button class="droptext">Episode 1</button>
-					<div class="blogtext"><p>Blog episode 1 content.</p></div>
+				
+				<textarea id="newEpisodeInput" rows="2" cols="30" name="suggestion">Enter new blogpost here.</textarea><button onclick="NewBlog()">Post</button>
+				
+				<br><div id="newText"></div>
+
+				<button class="droptext">Episode 1</button>
+				<div class="blogtext"><p>Blog episode 1 content.</p></div>
 
 
 				<br><button class="droptext">Episode 2</button>
@@ -238,12 +287,18 @@
 </body>
 
 <script>
+
+
+
+
     var drp = document.getElementsByClassName("droptext");
     var i;
 
     for (i = 0; i < drp.length; i++){
         drp[i].addEventListener("click", function(){
-            this.classList.toggle("active");
+            console.log(this);
+			console.log(drp);
+			this.classList.toggle("active");
             var panel = this.nextElementSibling;
             if (panel.style.display === "block"){
                 panel.style.display = "none";
@@ -256,6 +311,39 @@
         });
 
     }
+
+	var newTexts = 0;
+
+	function NewBlog(){
+	var text=document.getElementById("newEpisodeInput").innerHTML;
+	var result="";
+
+	result = "<button class='droptext'>New Entry</button><div class='blogtext'><p>" + text + "</p></div>";
+	document.getElementById("newText").innerHTML += result;
+	drp=document.getElementsByClassName("droptext");
+
+		newTexts++;
+	
+		for (i = 0; i < newTexts; i++){
+        drp[i].addEventListener("click", function(){
+            console.log(this);
+			console.log(drp);
+			this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block"){
+                panel.style.display = "none";
+            }
+            else {
+                panel.style.display = "block";
+            }
+
+
+        });
+
+    }
+
+}
+
 
 	var likes1 = 0;
 	function onClickLike(){
@@ -305,9 +393,34 @@
   document.getElementById("demo1").innerHTML = komentari1;
 }
 
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
 
 
 
+
+
+
+
+function ralphLevo(lev){
+	lev.style.opacity = "0";
+	var desen = document.getElementById("karateDesno");
+	desen.style.opacity = "100";
+}
+
+function ralphDesno(desen){
+	desen.style.opacity = "0";
+	var lev = document.getElementById("karateLevo");
+	lev.style.opacity = "100";
+}
+
+function PodcastFunc(){
+	var novWindow = window.open("","Podcast","width=350,height=100")
+	novWindow.document.write("<title>Html-Podcast ep.1</title><audio controls><source src='pod_audio' type='audio/ogg'><source src='pod_audio' type='audio/mpeg'></audio>");
+	
+}
 
 </script>
 
