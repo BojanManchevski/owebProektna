@@ -156,7 +156,7 @@
 							
 							<form action="">
 							<textarea rows="1" cols="30" name="suggestion">Comment...</textarea>
-							<input type="submit" value="Submit">
+							
 							</form>
 
 					</td>
@@ -345,18 +345,46 @@
 }
 
 
-	var likes1 = 0;
+
+	if(localStorage.getItem("klikovi1")){document.getElementById("clicks").innerHTML = localStorage.klikovi1;}
+	else{document.getElementById("clicks").innerHTML = 0;}
+
+	if(localStorage.getItem("klikovi2")){document.getElementById("clicks2").innerHTML = localStorage.klikovi2;}
+	else{document.getElementById("clicks2").innerHTML = 0;}
+	
+	console.log(localStorage.klikovi1);
+	console.log(localStorage.klikovi2);
+
+
 	function onClickLike(){
 		
-		likes1 += 1;
-		document.getElementById("clicks").innerHTML = likes1;
+		if(!localStorage.getItem("klikovi1")){
+		localStorage.setItem("klikovi1", "0");
+		}
+
+
+		var prethodni1 = localStorage.getItem("klikovi1");
+
+		const vkupno = 1 + Number(prethodni1);
+		document.getElementById("clicks").innerHTML = vkupno;
+
+		localStorage.klikovi1 = vkupno;
+
 	};
 
-	var likes2 = 0;
 	function onClickLike2(){
-		
-		likes2 += 1;
-		document.getElementById("clicks2").innerHTML = likes2;
+
+		if(!localStorage.getItem("klikovi2")){
+		localStorage.setItem("klikovi2", "0");
+		}
+
+
+		var prethodni1 = localStorage.getItem("klikovi2");
+
+		const vkupno = 1 + Number(prethodni1);
+		document.getElementById("clicks2").innerHTML = vkupno;
+
+		localStorage.klikovi2 = vkupno;
 	};
 
 	function ThankYou(){
@@ -370,28 +398,43 @@
 		}
 	}
 
-
-
+	//ovaa funkcija ne raboti test bese --------
 	function AddComment1(){
+
+		//local storage obid
+		var sitekomentari = localStorage.getItem("komentari");
+		
+
+
 		var x = document.getElementById("FirstComment").value;
-		
-		document.getELementById("comments1").innerHTML = x;
-		
-
+		var print = sitekomentari + "<div>" + x + "</div>";
+		document.getELementById("comments1").innerHTML = print;
 	}
+	//-----------
 
 
-
-		//tesssssssssst
+		
 
 		var komentari1="";
 		var randomUserNum;
+
+		if(localStorage.getItem("komentari")){document.getElementById("demo1").innerHTML = localStorage.komentari;}
+		else{document.getElementById("demo1").innerHTML = "";}
 		function myFunction() {
-  var x = document.getElementById("myText").value;
-	randomUserNum = Math.floor(Math.random() * 100);
-	komentari1 += "RandomUser" + randomUserNum +": " + x + "\n";
-  document.getElementById("demo1").innerHTML = komentari1;
-}
+			
+			if(!localStorage.getItem("komentari")){
+			localStorage.setItem("komentari","");	
+			}
+
+			var sitekomentari = localStorage.getItem("komentari");
+  			var x = document.getElementById("myText").value;
+			randomUserNum = Math.floor(Math.random() * 100);
+			komentari1 = sitekomentari + "<div>" + "RandomUser" + randomUserNum +": " + x + "</div>";
+  			document.getElementById("demo1").innerHTML = komentari1;
+
+  			localStorage.komentari = komentari1;
+
+		}
 
 var loadFile = function(event) {
 	var image = document.getElementById('output');
